@@ -85,3 +85,9 @@ body {
 .weather{
     display: none
 }
+.error{
+    display: none;
+    margin-top: 20px;
+    letter-spacing: 5px;
+    color: whitesmoke;
+}
