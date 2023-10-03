@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="app.css" />
+    <script src="app.js" defer></script>
+    <title>Vanilla JavaScript Weather App</title>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Add Location</h1>
+        <form action="" id="search-form">
+          <label for="search-form">Search for City or Area</label>
+          <div class="form-row">
+            <input type="text" placeholder="e.g. Hamburg" name="search-term" id="search-term" autofocus/>
+
+            <button type="submit"><img src="img/plus-circle.svg" alt="Search"/></button>
+          </div>
+          <p class="form-msg"></p>
+        </form>
+      </header>
+      <section>
+        <ul class="cities">
+            <li>
+                <figure>
+                    <img src="img/weather/01d.svg" alt="Demo">
+                </figure>
+                <div>
+                    <h2>21<sup>°C</sup></h2>
+                    <p class="city__conditions">SUNNY</p>
+                    <h3><span class="city__name">Hamburg</span><span class="city__country">Ger</span></h3>
+                </div>
+            </li>
+            <li>
+                <figure>
+                    <img src="img/weather/02d.svg" alt="Demo">
+                </figure>
+                <div>
+                    <h2>21<sup>°C</sup></h2>
+                    <p class="city__conditions">SUNNY</p>
+                    <h3><span class="city__name">Damascus</span><span class="city__country">SYR</span></h3>
+                </div>
+            </li>
+            <li>
+                <figure>
+                    <img src="img/weather/02d.svg" alt="Demo">
+                </figure>
+                <div>
+                    <h2>21<sup>°C</sup></h2>
+                    <p class="city__conditions">SUNNY</p>
+                    <h3><span class="city__name">London</span><span class="city__country">UK</span></h3>
+                </div>
+            </li>
+        </ul>
+      </section>
+      <footer><p><small>Hossam Othman <a href="https://github.com/HossamOthman">GitHub</a> or
+            <a href="https://www.linkedin.com/in/hossam-othman-8135371a2/">LinkedIn</a></small></p></footer>
+    </div>
+  </body>
+</html>
