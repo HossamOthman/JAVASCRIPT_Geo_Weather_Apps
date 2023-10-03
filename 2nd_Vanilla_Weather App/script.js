@@ -2,21 +2,36 @@ const apiKey = '&appid=';
 const searchBox = document.querySelector('.search input')
 const searchBtn = document.querySelector('.search button')
 const apiUrl = `https://api.openweathermap.org/data/2.5/weather?units=metric&q=`
-const city = 'hamburg'
+const weatherIcon =  document.querySelector('.weather-icon');
+const weatherDiv = document.querySelector('.weather');
 
-checkWeater(city);
 
 searchBtn.addEventListener('click', () => {
     checkWeater(searchBox.value);
 })
 
 async function checkWeater(city) {
+    weatherDiv.style.display = 'block';
     const response = await fetch(apiUrl + city + apiKey);
     var data = await response.json();
 
     console.log(data)
-    document.querySelector('.city').innerHTML = data.name;
+    document.querySelector('.city').innerHTML = data.name ? data.name : 'Invalid Entry';
     document.querySelector('.temp').innerHTML = Math.round(data.main.temp) + '°C';
     document.querySelector('.humidity').innerHTML = data.main.humidity + '%';
     document.querySelector('.wind').innerHTML = data.wind.speed + 'km/h';
+
+    if (data.weather[0].main == 'Clear') {
+        weatherIcon.src = 'img/clear.png';
+    } else if (data.weather[0].main == 'Clouds') {
+        weatherIcon.src = 'img/clouds.png';
+    }  else if (data.weather[0].main == 'Mist') {
+        weatherIcon.src = 'img/mist.png';
+    } else if (data.weather[0].main == 'Rain') {
+        weatherIcon.src = 'img/rain.png';
+    } else if (data.weather[0].main == 'Snow') {
+        weatherIcon.src = 'img/snow.png';
+    } else if (data.weather[0].main == 'Drizzle') {
+        weatherIcon.src = 'img/drizzle.png';
+    }
 }
