@@ -200,7 +200,7 @@ a {
 }
 
 .previous-weather {
-    display: none;
+    // display: none;
     background: var(--clr-light);
     color: var(--clr-dark);
     position: absolute;
@@ -227,7 +227,7 @@ a {
     color: var(--clr-gray);
     border: 0;
     font-family: inherit;
-
+    border: none;
     &:hover,
     &:focus {
         color: var(--clr-dark);
@@ -280,6 +280,7 @@ a {
 
 .show-weather.previous-weather {
     transform: translateY(0);
+    border: none;
 
     .show-previous-weather span {
         display: block;
@@ -303,6 +304,7 @@ a {
     .previous-day:nth-child(6) { animation-delay: 225ms}
     .previous-day:nth-child(7) { animation-delay: 300ms}
 }
+
 
 @keyframes slideUpIn {
     0% { 
