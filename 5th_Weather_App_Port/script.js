@@ -33,6 +33,7 @@ function searchWeather(searchTerm) {
 
 
 function init(resultFromServer) {
+    setPositionForWeatherInfo();
     console.log(resultFromServer)
     switch (resultFromServer.weather[0].main) {
         case 'Clear':
@@ -71,9 +72,17 @@ function init(resultFromServer) {
     weatherDescriptionHeader.innerText = resultDescription.charAt(0).toUpperCase() + resultDescription.slice(1)
     
     temperature.innerHTML = Math.floor(resultFromServer.main.temp) + '&deg;';
-    windSpeed.innerHTML =  Math.floor(resultFromServer.wind.speed) + 'm/s';
-    cityHeader.innerHTML = resultFromServer.name;
+    windSpeed.innerHTML =  'Winds at ' + Math.floor(resultFromServer.wind.speed) + ' m/s';
+    cityHeader.innerHTML = resultFromServer.name + ', ' + resultFromServer.sys.country;
     humidity.innerHTML = 'Humidity levels at ' + resultFromServer.main.humidity + '%';
+}
 
+function setPositionForWeatherInfo() {
+    let weatherContainer = document.getElementById('weatherContainer');
+    let weatherContainerHeight = weatherContainer.clientHeight;
+    let weatherContainerWidth = weatherContainer.clientWidth;
 
+    weatherContainer.style.visibility = 'visible';
+    weatherContainer.style.left = `calc(50% - ${weatherContainerWidth / 2}px)`
+    weatherContainer.style.top = `calc(50% - ${weatherContainerHeight / 1.1}px)`
 }
