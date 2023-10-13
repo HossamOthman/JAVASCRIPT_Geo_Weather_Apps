@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {background-color: #333; color: whitesmoke; font-family: Arial, Helvetica, sans-serif;}
+        h1 {color:whitesmoke; font-size: 75px; text-align: center;}
+        ul {color:antiquewhite; list-style: none; line-height: 25px;}
+      </style>
+    <title>JS Geolocation API</title>
+</head>
+<body>
+    <h1>Geolocation API Using JavaScript</h1>
+
+    <ul>
+        <li>Allows users to provide  thier geographical location to web applications</li>
+        <li>Simple and easy to use</li>
+        <li>Only works in secure contexts (HTTPS)</li>
+    </ul>
+
+
+    <script>
+        const successCallback = (position) => {
+            console.log(position)
+        }
+
+        const errorCallback = (error) => {
+            console.log(error)
+        }
+
+        // Static location
+        navigator.geolocation.getCurrentPosition(successCallback, errorCallback, {
+            enableHighAccuracy: true,
+            timeout: 5000
+        })
+        
+
+        // Dynamic location
+        // const watchId = navigator.geolocation.watchPosition(successCallback, errorCallback);
+        // navigator.geolocation.clearWatch(watchId)
+    </script>
+</body>
+</html>
